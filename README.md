@@ -1,4 +1,4 @@
-zsteeby.github.io
+Scariest Map Ever
 =================
 This prank web map was created using mapbox.js v2.1.4 to have some fun with my coworkers.
 
