@@ -1,0 +1,217 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "marker-i1og32s70",
+        "title": "Jaws",
+        "description": "We're gonna need a bigger boat!",
+        "marker-size": "medium",
+        "marker-color": "#6c6c6c",
+        "marker-symbol": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -70.5342,
+          41.405784
+        ],
+        "type": "Point"
+      },
+      "id": "ci9bng07l0aw9jmm4cgdf5p3d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "marker-i1ogbaw11",
+        "title": "Dawn of the Dead",
+        "description": "Zombie Attack!",
+        "marker-size": "medium",
+        "marker-color": "#6c6c6c",
+        "marker-symbol": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -79.757861,
+          40.42418
+        ],
+        "type": "Point"
+      },
+      "id": "ci9bng07n0awajmm4cz389jgc"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "marker-i1ogdmcm2",
+        "title": "Exorcist",
+        "description": "Creeeeeeeeepy!",
+        "marker-size": "medium",
+        "marker-color": "#6c6c6c",
+        "marker-symbol": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -76.992695,
+          38.899393
+        ],
+        "type": "Point"
+      },
+      "id": "ci9bng07o0awbjmm4u38lwezh"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "marker-i1oglzoh3",
+        "title": "Friday the 13th",
+        "description": "Chi-chi-chi-ca-ca-ca",
+        "marker-size": "medium",
+        "marker-color": "#6c6c6c",
+        "marker-symbol": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -74.938364,
+          40.981432
+        ],
+        "type": "Point"
+      },
+      "id": "ci9bng07q0awcjmm4e2aow3nw"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "marker-i1ogngmk4",
+        "title": "Poltergeist",
+        "description": "They're here!",
+        "marker-size": "medium",
+        "marker-color": "#6c6c6c",
+        "marker-symbol": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -118.702367,
+          34.295151
+        ],
+        "type": "Point"
+      },
+      "id": "ci9bng07s0awdjmm4x2m1d8aw"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "marker-i1oh21ul5",
+        "title": "The Shining",
+        "description": "Here's Johnny!",
+        "marker-size": "medium",
+        "marker-color": "#6c6c6c",
+        "marker-symbol": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -105.63833,
+          40.405422
+        ],
+        "type": "Point"
+      },
+      "id": "ci9bng07u0awejmm4unc2snca"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "marker-i1ohb82j6",
+        "title": "Rosemary's Baby",
+        "description": "Don't call me to babysit!",
+        "marker-size": "medium",
+        "marker-color": "#6c6c6c",
+        "marker-symbol": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.946246,
+          40.78853
+        ],
+        "type": "Point"
+      },
+      "id": "ci9bng07w0awfjmm4n0hqsj43"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "marker-i1ojeeac1",
+        "title": "The Amityville Horror",
+        "description": "This house seems sus!",
+        "marker-size": "medium",
+        "marker-color": "#6c6c6c",
+        "marker-symbol": ""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.417522,
+          40.684846
+        ],
+        "type": "Point"
+      },
+      "id": "ci9bng07z0awhjmm4ky2kbs41"
+    },
+        {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -118.1569731,
+          34.1161586
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "label": "1000 Mission Street - 1000 Mission Street, South Pasadena, California 91030, United States",
+        "title": "Halloween",
+        "description": "Scary Captain Kirk!"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -118.254187,
+          34.048051
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "label": "Los Angeles - California, United States",
+        "title": "A Nightmare on Elm Street",
+        "description": "Freddy's coming for you!"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -98.437042,
+          30.660262
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "label": "1010 King Court - 1010 King Court, Kingsland, Texas 78639, United States",
+        "title": "The Texas Chainsaw Massacre",
+        "description": "Loud chainsaw noises!"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -77.25308012,
+          39.1430984
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "label": "Seneca Creek State Park - 11950 Clopper Rd, Gaithersburg, Maryland 20878, United States",
+        "title": "The Blair Witch Project",
+        "description": "Motion Sickness!"
+      }
+    }
+  ],
+  "type": "FeatureCollection"
+}

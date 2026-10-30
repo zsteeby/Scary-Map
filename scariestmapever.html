@@ -4,14 +4,34 @@
 <meta charset=utf-8 />
 <title>ScaryMap</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
 <style>
   #header { background-color:black; color:#4FC54A; text-align:center; padding:5px; z-index:1;}
   #map { position:absolute; top:0; bottom:0; width:100%; z-index:-1; }
   h2.hidden { display:none;}
   #myimage { display:none; position:fixed; top:-50%; left:-50%; width:200%; height:200%; z-index:-1;}
   #myimage img { position:absolute; top:0; left:0; right:0; bottom:0; margin:auto; min-width:50%; min-height:50%;}
+  .leaflet-tile-container {
+    filter: grayscale(100%) invert(100%) hue-rotate(180deg);
+  }
+  /* Center the Leaflet attribution control box */
+  .leaflet-bottom.leaflet-right {
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    pointer-events: none; /* Allows clicks to pass through to the map underneath */
+  }
+
+  .leaflet-control-attribution {
+    pointer-events: auto; /* Re-enables clicking on the links */
+    margin: 0 auto 10px auto !important; /* Centers the box and adds a bottom margin */
+  }
 
 </style>
 </head>
@@ -25,22 +45,52 @@
 <img src='scary.jpg' alt=''/>
 </div>
 <audio id ='scream'>
+  <!-- The audio file was downloaded from Soundbible.com here:  http://soundbible.com/66-Screaming-Female.html -->
   <source src="Screaming.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
 <script>
-// Provide your access token
-L.mapbox.accessToken = 'pk.eyJ1IjoiY3Jvd2UtcmlkbGV5IiwiYSI6ImpjTGdpUW8ifQ.m5WtjYTE8_lH8wYrIlL9PQ';
-// Create a map in the div #map
-L.mapbox.map('map', 'crowe-ridley.k1p9i2i9');
+  
+function addPopups(feature, layer) {
+  if (feature.properties && feature.properties.title) {
+    var popupContent = "<h3>" + feature.properties.title + "</h3>" +
+                       "<p>" + feature.properties.description + "</p>";
+    layer.bindPopup(popupContent);
+  }
+}
+  var map = L.map('map').setView([39.50, -98.35], 4);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> | <a href="https://www.flaticon.com/free-icons/horror" title="horror icons">Horror icons created by Jesus Chavarria - Flaticon</a>'
+  }).addTo(map);
+
+  const customIcon = L.icon({
+    iconUrl: 'movie.png', // Path to your icon image
+    iconSize: [38, 38],              // Size of the icon [width, height]
+    iconAnchor: [19, 38],            // Point of the icon which will correspond to marker's location
+    popupAnchor: [0, -38]            // Point from which the popup should open relative to the iconAnchor
+  });
+
+  fetch('scary.geojson')
+    .then(response => response.json())
+    .then(data => {
+      L.geoJSON(data, {
+        pointToLayer: function (feature, latlng) {
+                // Return a marker instance using your custom icon
+                return L.marker(latlng, { icon: customIcon });
+            },
+        onEachFeature: addPopups
+      }).addTo(map);
+    })
+    .catch(error => console.error('Error Loading GeoJSON :', error));
 </script>
 <script>
 setTimeout(function(){
     document.getElementById('myimage').style.display = 'block';
     document.getElementById('title').style.display = 'none';
     document.getElementById('map').style.display = 'none';
-    document.getElementById('gotchya').style.display = 'block';
     document.getElementById('scream').play();
+    document.getElementById('gotchya').style.display = 'block';
 },7000);
 </script>
 </body>
