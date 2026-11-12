@@ -85,13 +85,35 @@ function addPopups(feature, layer) {
     .catch(error => console.error('Error Loading GeoJSON :', error));
 </script>
 <script>
-setTimeout(function(){
-    document.getElementById('myimage').style.display = 'block';
-    document.getElementById('title').style.display = 'none';
-    document.getElementById('map').style.display = 'none';
-    document.getElementById('scream').play();
-    document.getElementById('gotchya').style.display = 'block';
-},7000);
+var scream = document.getElementById('scream');
+
+// Browsers block audio until the user interacts with the page, so wait for
+// the first click/tap/keypress, prime the audio, then start the countdown.
+function startScare() {
+    document.removeEventListener('click', startScare, true);
+    document.removeEventListener('keydown', startScare, true);
+    document.removeEventListener('touchstart', startScare, true);
+
+    scream.muted = true;
+    scream.play().then(function() {
+        scream.pause();
+        scream.currentTime = 0;
+        scream.muted = false;
+    }).catch(function() {});
+
+    setTimeout(function(){
+        document.getElementById('myimage').style.display = 'block';
+        document.getElementById('title').style.display = 'none';
+        document.getElementById('map').style.display = 'none';
+        scream.muted = false;
+        scream.play().catch(function(e) { console.warn('Audio blocked:', e); });
+        document.getElementById('gotchya').style.display = 'block';
+    },7000);
+}
+// Capture phase so Leaflet can't swallow the first click
+document.addEventListener('click', startScare, true);
+document.addEventListener('keydown', startScare, true);
+document.addEventListener('touchstart', startScare, true);
 </script>
 </body>
 </html>
